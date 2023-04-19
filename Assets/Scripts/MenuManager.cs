@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.XR.Interaction.Toolkit;
 
@@ -7,12 +8,23 @@ public class MenuManager : MonoBehaviour
 {
     [SerializeField] private Transform _XROrigin;
     [SerializeField] private List<Transform> _locations;
+    [SerializeField] private TMP_Dropdown _locationDropdown;
 
     private Vector3 _requestedPosition;
     private Quaternion _requestedRotation;
     private bool _checkMoveRequest = false;
     private float _positionResetTimer = 0f;
     
+    // Start is called before the first frame update
+    void Start()
+    {
+        _locationDropdown.ClearOptions();
+        List<string> ddlist = new List<string>();
+        foreach (var loc in _locations)
+            ddlist.Add(loc.name);
+        _locationDropdown.AddOptions(ddlist);
+    }
+
     public void GoToLocation(int index)
     {
         _requestedPosition = _locations[index].position;
@@ -34,11 +46,6 @@ public class MenuManager : MonoBehaviour
         //     tpReq.requestTime = Time.time;
         // }
         // _teleportationProvider.QueueTeleportRequest(tpReq);
-    }
-    
-    // Start is called before the first frame update
-    void Start()
-    {
     }
 
     // Update is called once per frame
