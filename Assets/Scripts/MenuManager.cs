@@ -75,4 +75,16 @@ public class MenuManager : MonoBehaviour
         _XROrigin.position = _requestedPosition;
         // Generally, rotations take effect, so leave it off for now
     }
+
+    public void CloseMenu()
+    {
+        // This was done in the Foundations course to avoid a brief flash, when we had multiple
+        // windows (canvases?) that might be closed all at once, when the menu was re-activated.
+        // I don't see any reason why we should keep this.
+        Invoke(nameof(DeactivateMenu), 0.1f);
+    }
+    private void DeactivateMenu()
+    {
+        gameObject.SetActive(false);
+    }
 }
