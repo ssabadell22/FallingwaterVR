@@ -21,6 +21,11 @@ it from the inside?
 With this in mind, the goal of this project is to present a VR experience of, primarily, the interior spaces. 
 Pictures don’t do it justice.
 
+## Project Details
+
+Built with Unity 2021.3.22f1, the HDRP rendering pipeline, XR Plugin Management version 4.3.3, 
+and XR Interaction Toolkit 2.3.1
+
 ## Attributions
 
 ### Model
