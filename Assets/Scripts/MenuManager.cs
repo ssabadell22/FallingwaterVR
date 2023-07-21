@@ -33,6 +33,7 @@ public class MenuManager : MonoBehaviour
         _XROrigin.position = _requestedPosition;
         _checkMoveRequest = true;
         _positionResetTimer = 0f;
+        CloseMenu();
 
         // TeleportRequest tpReq;
         // {
